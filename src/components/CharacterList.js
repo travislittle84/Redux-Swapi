@@ -5,9 +5,13 @@ import Character from "./Character";
 
 const CharacterList = props => {
   console.log("characters props", props)
-  const { isFetching } = props
+  const { isFetching, errorMessage } = props
   if (isFetching === true) {
     return <p>Loading</p>
+  }
+
+  if (errorMessage) {
+    return <p>Error: {errorMessage}</p>
   }
   
   return (
@@ -23,6 +27,7 @@ const mapStateToProps = (state) => {
   return {
     isFetching: state.charsReducer.isFetching,
     characters: state.charsReducer.characters,
+    errorMessage: state.charsReducer.errorMessage
   }
 }
 

@@ -17,10 +17,11 @@ export const charsReducer = (state = initialState, action) => {
 
     }
     case FETCH_FAILED: {
-      console.log("FETCH FAILED", action.payload.error.statusText)
+      // console.log("FETCH FAILED", action.payload.error.statusText)
       return {
         ...state,
         isFetching: action.payload.isFetching,
+        errorMessage: action.payload.error.statusText
       }
 
     }
